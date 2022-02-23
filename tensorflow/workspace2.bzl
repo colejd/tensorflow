@@ -131,7 +131,7 @@ def _tf_repositories():
     # and update the sha256 with the result.
 
     # LINT.IfChange
-    tf_http_archive(
+    http_archive(
         name = "XNNPACK",
         sha256 = "488de29c445e506cdca3cc1e9e99f93d8f3969fa5a59037785f9b5d8140c436c",
         strip_prefix = "XNNPACK-8e45d849eef596ea48312f54ae52d8ed483002a0",
