@@ -12,6 +12,7 @@ load("//third_party/systemlibs:syslibs_configure.bzl", "syslibs_configure")
 load("@tf_toolchains//toolchains/cpus/arm:arm_compiler_configure.bzl", "arm_compiler_configure")
 load("@tf_toolchains//toolchains/embedded/arm-linux:arm_linux_toolchain_configure.bzl", "arm_linux_toolchain_configure")
 load("//third_party:repo.bzl", "tf_http_archive", "tf_mirror_urls")
+load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 load("//third_party/clang_toolchain:cc_configure_clang.bzl", "cc_download_clang_toolchain")
 load("//tensorflow/tools/def_file_filter:def_file_filter_configure.bzl", "def_file_filter_configure")
 load("//third_party/llvm:setup.bzl", "llvm_setup")
@@ -131,13 +132,12 @@ def _tf_repositories():
     # and update the sha256 with the result.
 
     # LINT.IfChange
-    tf_http_archive(
+    http_archive(
         name = "XNNPACK",
         sha256 = "488de29c445e506cdca3cc1e9e99f93d8f3969fa5a59037785f9b5d8140c436c",
         strip_prefix = "XNNPACK-8e45d849eef596ea48312f54ae52d8ed483002a0",
         urls = [
-            "https://github.com/colejd/XNNPACK/archive/8e45d849eef596ea48312f54ae52d8ed483002a0.zip",
-            "https://github.com/colejd/XNNPACK/archive/8e45d849eef596ea48312f54ae52d8ed483002a0.zip" # Needs a mirror URL, but we'll just list it twice.
+            "https://github.com/colejd/XNNPACK/archive/8e45d849eef596ea48312f54ae52d8ed483002a0.zip"
         ],
     )
     # LINT.ThenChange(//tensorflow/lite/tools/cmake/modules/xnnpack.cmake)
