@@ -75,6 +75,12 @@ config_setting(
     visibility = ["//visibility:private"],
 )
 
+config_setting(
+    name = "cpu_ios_sim_arm64",
+    values = {"cpu": "ios_sim_arm64"},
+    visibility = ["//visibility:private"],
+)
+
 # arm64e variants of the above two. See:
 # https://stackoverflow.com/questions/52624308/xcode-arm64-vs-arm64e
 config_setting(
@@ -304,6 +310,7 @@ cc_library(
         ":cpu_arm64": [":tflite_with_ruy_enabled"],
         ":cpu_arm64e": [":tflite_with_ruy_enabled"],
         ":cpu_ios_arm64": [":tflite_with_ruy_enabled"],
+        ":cpu_ios_sim_arm64": [":tflite_with_ruy_enabled"],
         ":cpu_ios_arm64e": [":tflite_with_ruy_enabled"],
         ":cpu_arm64_v8a": [":tflite_with_ruy_enabled"],
         "//tensorflow:android_arm": ["tflite_with_ruy_enabled"],

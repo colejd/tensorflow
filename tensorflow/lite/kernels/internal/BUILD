@@ -143,6 +143,13 @@ config_setting(
 )
 
 config_setting(
+    name = "ios_sim_arm64",
+    values = {
+        "cpu": "ios_sim_arm64",
+    },
+)
+
+config_setting(
     name = "ios_arm64e",
     values = {
         "cpu": "ios_arm64e",
@@ -241,6 +248,7 @@ selects.config_setting_group(
         ":armv7a",
         ":ios_armv7",
         ":ios_arm64",
+        ":ios_sim_arm64",
         ":ios_arm64e",
         ":darwin_arm64",
         ":raspberry_pi_with_neon",
